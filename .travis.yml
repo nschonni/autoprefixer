@@ -1,3 +1,14 @@
 language: node_js
+
 node_js:
   - "0.10"
+
+before_install:
+  - npm i -g cake
+  - cd benchmark/compass
+  - bundle install
+  - cd $TRAVIS_BUILD_DIR
+
+script:
+  - npm test
+  - cake bench
